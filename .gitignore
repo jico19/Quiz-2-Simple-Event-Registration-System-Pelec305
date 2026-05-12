@@ -1,0 +1,31 @@
+# Python Byte-compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+venv/
+env/
+.venv/
+ENV/
+
+# Sensitive Information (Environment Variables)
+.env
+local_settings.py
+
+# Database
+db.sqlite3
+db.sqlite3-journal
+
+# Media and Static
+/media/
+/static/
+# (Note: Only ignore /static/ if you collect files here for production; 
+#  keep your source static files tracked.)
+
+# Logs
+*.log
+
+# OS Specific
+.DS_Store
+Thumbs.db
