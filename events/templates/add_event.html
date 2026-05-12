@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Event</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    
+
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-7 col-md-9">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <h1 class="card-title mb-3 text-center">Add Event</h1>
+                        <p class="text-center text-muted mb-4">Register for the event with your details.</p>
+
+                        <form method="POST" novalidate>
+                            {% csrf_token %}
+
+                            {% if forms.non_field_errors %}
+                                <div class="alert alert-danger">
+                                    {{ forms.non_field_errors }}
+                                </div>
+                            {% endif %}
+
+                            <div class="mb-3">
+                                {{ forms.full_name.label_tag }}
+                                {{ forms.full_name }}
+                                {% if forms.full_name.errors %}
+                                    <div class="form-text text-danger">{{ forms.full_name.errors|striptags }}</div>
+                                {% endif %}
+                            </div>
+
+                            <div class="mb-3">
+                                {{ forms.email.label_tag }}
+                                {{ forms.email }}
+                                {% if forms.email.errors %}
+                                    <div class="form-text text-danger">{{ forms.email.errors|striptags }}</div>
+                                {% endif %}
+                            </div>
+
+                            <div class="mb-3">
+                                {{ forms.age.label_tag }}
+                                {{ forms.age }}
+                                {% if forms.age.errors %}
+                                    <div class="form-text text-danger">{{ forms.age.errors|striptags }}</div>
+                                {% endif %}
+                            </div>
+
+                            <div class="mb-4">
+                                {{ forms.password.label_tag }}
+                                {{ forms.password }}
+                                {% if forms.password.errors %}
+                                    <div class="form-text text-danger">{{ forms.password.errors|striptags }}</div>
+                                {% endif %}
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-lg w-100">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
